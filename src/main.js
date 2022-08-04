@@ -1,5 +1,5 @@
 // 框架导入
-import Summer from "../lib/core/Summer.js";
+import Sage from "../lib/core/Sage.js";
 // 外部JS库导入
 import MODs from './MODs.js';
 // componment 导入
@@ -10,7 +10,7 @@ import Top from './components/Top.mar';
 
 
 
-window.mini_blog = new Summer();
+window.mini_blog = new Sage();
 
 mini_blog.$add(MODs.mathjax);
 mini_blog.$add(MODs.Handlebars);
