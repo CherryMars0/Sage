@@ -5,10 +5,10 @@ import PopPrint from "../lib/outSide/PopPrint";
 
 const MODs = {
     PopPrint() {
-        mini_blog.PopPrint = new PopPrint();
+        this.PopPrint = new PopPrint();
     },
     mathjax() {
-        mini_blog.MathJax = {
+        this.mathjax = {
             tex: {
                 inlineMath: [['$', '$'], ['\\(', '\\)']],
             },
@@ -23,11 +23,8 @@ const MODs = {
         document.head.appendChild(script);
     },
     highlight() {
-        mini_blog.highlight = highlight;
-        mini_blog.highlight.highlightAll();
-    },
-    Handlebars() {
-        mini_blog.Handlebars = {};
+        this.highlight = highlight;
+        this.highlight.highlightAll();
     },
     marked() {
         let rendererMD = new marked.Renderer();
@@ -41,10 +38,10 @@ const MODs = {
             smartLists: true,
             smartypants: false,
             highlight: (code) => {
-                return mini_blog.highlight.highlightAuto(code).value;
+                return this.highlight.highlightAuto(code).value;
             }
         });
-        mini_blog.marked = marked;
+        this.marked = marked;
     },
 };
 export default MODs;

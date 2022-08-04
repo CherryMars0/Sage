@@ -1,7 +1,7 @@
 <mar>
     <div id="Top">
         <div class="formal">\(ax^2 + bx + c =0 \)</div>
-        <div>{{"Marvelous"}}</div>
+        <div>{{this.db.name}}</div>
     </div>
 </mar>
 
@@ -22,8 +22,8 @@
     export default {
         name: "Top",
         title: "Marvelous",
-        data: {
-            name: "Marvelous",
+        db: {
+            name: window.Sage.marked.parse(`***Marvelous***`),
         },
         func: {
             print(str) {

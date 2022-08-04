@@ -6,23 +6,13 @@ import MODs from './MODs.js';
 import Top from './components/Top.mar';
 
 
+new Sage({
+    mathjax: MODs.mathjax,
+    highlight: MODs.highlight,
+    marked: MODs.marked,
+}).$mount('#Sage', Top);
 
 
 
-
-window.mini_blog = new Sage();
-
-mini_blog.$add(MODs.mathjax);
-mini_blog.$add(MODs.Handlebars);
-mini_blog.$add(MODs.marked);
-mini_blog.$add(MODs.highlight);
 // mini_blog.$add(MODs.PopPrint);
-
-
-
-mini_blog.$render(Top);
-
-console.log(mini_blog);
-
-
-
+console.log(window.Sage);
