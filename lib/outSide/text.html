@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="de">123123123123</p>
+</body>
+<script src="./PopPrint.js"></script>
+
+<script>
+    window.onload = function() {
+        let dom = document.getElementById("de");
+        new PopPrint(dom,dom.textContent).tick();
+    }
+</script>
+</html>

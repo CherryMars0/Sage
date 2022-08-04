@@ -1,0 +1,40 @@
+<mar>
+    <div id="Top">
+        <div class="formal">\(ax^2 + bx + c =0 \)</div>
+        <div>{{"Marvelous"}}</div>
+    </div>
+</mar>
+
+
+<style>
+    #Top {
+        width: 100vw;
+        height: 100px;
+        background-color: #fbd26a;
+    }
+
+    .formal {
+        background-color: #D44848;
+    }
+</style>
+
+<script>
+    export default {
+        name: "Top",
+        title: "Marvelous",
+        data: {
+            name: "Marvelous",
+        },
+        func: {
+            print(str) {
+                console.log(str);
+            }
+        },
+    }
+</script>
+
+
+
+<outSide>
+
+</outSide>
