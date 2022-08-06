@@ -1,7 +1,20 @@
 <mar>
     <div id="Top">
-        <div class="formal">\(ax^2 + bx + c =0 \)</div>
-        <div>{{this.db.name}}</div>
+        <div class="container">
+            <div class="framework">
+                <p>{{this.db.framework}}</p>
+            </div>
+            <div class="formla">
+                <p>
+                    \((a + b)^2 = ax^2 + 2ab + b^2 \)
+                </p>
+            </div>
+            <div class="powered">
+                <p>
+                    {{this.db.name}}
+                </p>
+            </div>
+        </div>
     </div>
 </mar>
 
@@ -9,12 +22,35 @@
 <style>
     #Top {
         width: 100vw;
-        height: 100px;
-        background-color: #fbd26a;
+        height: 100vh;
+        background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
     }
 
-    .formal {
-        background-color: #D44848;
+    .container {
+        height: 300px;
+        text-align: center;
+    }
+
+    .container div {
+        margin-bottom: 20px;
+    }
+
+    .framework {
+        font-size: 40px;
+        background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    .powered {
+        font-size: 20px;
+        background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
+        -webkit-background-clip: text;
+        color: transparent;
     }
 </style>
 
@@ -23,13 +59,38 @@
         name: "Top",
         title: "Marvelous",
         db: {
-            name: window.Sage.marked.parse(`***Marvelous***`),
+            framework: window.Sage.marked.parse(`***Sage***`),
+            name: window.Sage.marked.parse(`***powered by Marvelous !***`),
         },
         func: {
-            print(str) {
-                console.log(str);
-            }
+
         },
+        watch: {
+            watch: (obj, prop, exec) => {
+                Object.defineProperty(obj, prop, {
+                    set: (newValue) => {
+                        prop = newValue;
+                        if (typeof exec === 'function') {
+                            exec(prop);
+                        } else if (exec === null) {
+                            console.log("set:" + newValue);
+                        } else if (typeof exec !== 'function') {
+                            console.error(exec + ' is not a function !');
+                        }
+                    },
+                    get: () => {
+                        if (typeof exec === 'function') {
+                            exec(prop);
+                        } else if (exec === null) {
+                            console.log("get:" + prop);
+                        } else if (typeof exec !== 'function') {
+                            console.error(exec + ' is not a function !');
+                        }
+                        return prop;
+                    },
+                });
+            },
+        }
     }
 </script>
 
